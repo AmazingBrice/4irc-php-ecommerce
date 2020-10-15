@@ -6,11 +6,10 @@ require('./controllers/controller.php');
 
 // Initialisation Smarty
 $smarty = new Smarty();
-$smarty->display('./views/header.tpl');
 
 // Le corps de la page.
 
-$smarty->display('./views/footer.tpl');
+$smarty->display('./views/accueil.tpl');
 
 // Fonction de routing.
 if (isset($_GET['action'])) {
@@ -29,3 +28,5 @@ if (isset($_GET['action'])) {
 else {
     listProducts();
 }
+
+
