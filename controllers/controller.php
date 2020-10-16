@@ -30,6 +30,9 @@ function displayInfoByUser($userId) {
 
     echo("user info : ");
     var_dump($userInfo);
+
+    //require('displayProfile.php');
+
 }
 
 function displayBasketByCustomer($customer) {
@@ -38,5 +41,8 @@ function displayBasketByCustomer($customer) {
 
     echo("basket : ");
     var_dump($basket);
+
+    //require('displayBasket.php');
+
 }
 
