@@ -25,6 +25,19 @@ if (isset($_GET['action'])) {
         }
     }
 }
+elseif ($_GET['action'] == 'addProductToBasket') {
+    if (isset($_GET['id']) && $_GET['id'] > 0) {
+        if (!empty($_POST['customer']) && !empty($_POST['product']) && !empty($_POST['quantity'])) {
+            addProductToBasket($_GET['id'], $_POST['customer'], $_POST['product']), $_POST['quantity']);
+        }
+        else {
+            echo 'Erreur : tous les champs ne sont pas remplis !';
+        }
+    }
+    else {
+    echo 'Erreur : aucun identifiant de produit envoyé';
+    }
+}
 else {
     listProducts();
 }

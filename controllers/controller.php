@@ -1,8 +1,8 @@
 <?php
 
-require_once('model/ProductManager.php');
-require_once('model/BasketManager.php');
-require_once('model/UserManager.php');
+require_once('models/ProductManager.php');
+require_once('models/BasketManager.php');
+require_once('models/UserManager.php');
 
 function listProducts() {
     $productManager = new ProductManager(); // Création d'un objet
@@ -32,7 +32,6 @@ function displayInfoByUser($userId) {
     var_dump($userInfo);
 
     //require('displayProfile.php');
-
 }
 
 function displayBasketByCustomer($customer) {
@@ -43,6 +42,18 @@ function displayBasketByCustomer($customer) {
     var_dump($basket);
 
     //require('displayBasket.php');
-
 }
 
+function addProductToBasket($customer, $product, $quantity)
+{
+    $affectedLines = addProductToBasket($customer, $product, $quantity);
+    if ($affectedLines !== false){
+        var_dump(affectedLines);
+        try {
+            header('Location: basket.php?action=basket&id=' . $basketId);
+        } 
+        catch(Exception $e) {
+            die('Error : '.$e->getMessage());
+        } 
+    }
+}

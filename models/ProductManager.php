@@ -1,28 +1,31 @@
 <?php
 
-public function getProducts() {
-    $db = dbConnect();
+class ProductManager {
 
-    $req = $db->query('SELECT id, name, description, price FROM Products');
+    public function getProducts() {
+        $db = $this->dbConnect();
 
-    return $req->fetch();
-}
+        $req = $db->query('SELECT id, name, description, price FROM Products');
 
-public function getProduct($productId) {
-    $db = dbConnect();
+        return $req->fetch();
+    }
 
-    $req = $db->prepare("SELECT id, name, description, price FROM Products WHERE id = ?");
-    $req->execute([$productId]);
+    public function getProduct($productId) {
+        $db = $this->dbConnect();
 
-    return $req->fetch();
-}
+        $req = $db->prepare("SELECT id, name, description, price FROM Products WHERE id = ?");
+        $req->execute([$productId]);
 
-// Database connection.
-private function dbConnect() {
-    try {
-        $db = new PDO("mysql:host=localhost;dbname=webapp","debian-sys-maint","aR7RIRZbiUZw3dYk");
-        return $db;
-    } catch(Exception $e) {
-        die('Error : '.$e->getMessage());
+        return $req->fetch();
+    }
+
+    // Database connection.
+    private function dbConnect() {
+        try {
+            $db = new PDO("mysql:host=localhost;dbname=webapp","debian-sys-maint","aR7RIRZbiUZw3dYk");
+            return $db;
+        } catch(Exception $e) {
+            die('Error : '.$e->getMessage());
+        }
     }
 }
