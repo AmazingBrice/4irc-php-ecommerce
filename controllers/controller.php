@@ -1,6 +1,8 @@
 <?php
 
-require('./models/model.php');
+require_once('model/ProductManager.php');
+require_once('model/BasketManager.php');
+require_once('model/UserManager.php');
 
 function listProducts() {
     $products = getProducts();

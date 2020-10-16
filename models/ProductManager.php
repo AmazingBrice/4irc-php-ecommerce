@@ -1,0 +1,28 @@
+<?php
+
+public function getProducts() {
+    $db = dbConnect();
+
+    $req = $db->query('SELECT id, name, description, price FROM Products');
+
+    return $req->fetch();
+}
+
+public function getProduct($productId) {
+    $db = dbConnect();
+
+    $req = $db->prepare("SELECT id, name, description, price FROM Products WHERE id = ?");
+    $req->execute([$productId]);
+
+    return $req->fetch();
+}
+
+// Database connection.
+private function dbConnect() {
+    try {
+        $db = new PDO("mysql:host=localhost;dbname=webapp","debian-sys-maint","aR7RIRZbiUZw3dYk");
+        return $db;
+    } catch(Exception $e) {
+        die('Error : '.$e->getMessage());
+    }
+}
