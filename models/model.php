@@ -1,6 +1,6 @@
 <?php
-// C'est ici que nous ferons nos requêtes SQL.
 
+// Products
 function getProducts() {
     $db = dbConnect();
 
@@ -10,7 +10,6 @@ function getProducts() {
 }
 
 function getProduct($id) {
-
     $db = dbConnect();
 
     $req = $db->prepare("SELECT id, name, description, price FROM Products WHERE id = ?");
@@ -19,12 +18,34 @@ function getProduct($id) {
     return $req->fetch();
 }
 
-// Fonction de connexion à la base de données.
+// Baksets
+
+function getBasketByCustomer($customer) {
+    $db = dbConnect();
+
+    $req = $db->query('SELECT customer, product, quantity FROM Basket WHERE customer = ?');
+    $req->execute([$customer]);
+
+    return $req->fetch();
+}
+
+// Users
+
+function getInfoByUser($id) {
+    $db = dbConnect();
+
+    $req = $db->query('SELECT id, firstname, familyname, address, username FROM Users WHERE id = ?');
+    $req->execute([$id]);
+
+    return $req->fetch();
+}
+
+// Database connection.
 function dbConnect() {
     try {
         $db = new PDO("mysql:host=localhost;dbname=webapp","debian-sys-maint","aR7RIRZbiUZw3dYk");
         return $db;
     } catch(Exception $e) {
-        die('Erreur : '.$e->getMessage());
+        die('Error : '.$e->getMessage());
     }
 }
