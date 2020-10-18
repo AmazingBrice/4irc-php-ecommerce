@@ -18,7 +18,7 @@ class BasketManager extends Manager {
         $manager = new Manager();
         $db = $manager->dbConnect();
 
-        $req = $db->prepare('INSERT INTO Basket(customer, product, quantity, date) VALUES(?, ?, ?, NOW())');
+        $req = $db->prepare('INSERT INTO Basket(customer, product, quantity) VALUES(?, ?, ?)');
         $affectedLines = $comments->execute(array($customer, $product, $quantity));
 
         return $affectedLines;
