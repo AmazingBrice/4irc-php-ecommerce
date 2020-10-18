@@ -1,11 +1,11 @@
 <?php
-require_once("models/DatabaseManager.php");
+require_once("models/Manager.php");
 
-class UserManager extends DatabaseManager {
+class UserManager extends Manager {
 
     public function getInfoByUser($userId) {
-        $dbManager = new DatabaseManager();
-        $db = $dbManager->dbConnect();
+        $manager = new Manager();
+        $db = $manager->dbConnect();
 
         $req = $db->query('SELECT id, firstname, familyname, address, username FROM Users WHERE id = ?');
         $req->execute([$userId]);

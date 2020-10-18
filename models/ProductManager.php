@@ -1,12 +1,12 @@
 <?php
 
-require_once("models/DatabaseManager.php");
+require_once("models/Manager.php");
 
-class ProductManager extends DatabaseManager {
+class ProductManager extends Manager {
 
     public function getProducts() {
-        $dbManager = new DatabaseManager();
-        $db = $dbManager->dbConnect();
+        $manager = new Manager();
+        $db = $manager->dbConnect();
 
         $req = $db->query('SELECT id, name, description, price FROM Products');
 
@@ -14,8 +14,8 @@ class ProductManager extends DatabaseManager {
     }
 
     public function getProduct($productId) {
-        $dbManager = new DatabaseManager();
-        $db = $dbManager->dbConnect();
+        $manager = new Manager();
+        $db = $manager->dbConnect();
 
         $req = $db->prepare("SELECT id, name, description, price FROM Products WHERE id = ?");
         $req->execute([$productId]);
