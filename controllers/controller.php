@@ -5,7 +5,7 @@ require_once('models/BasketManager.php');
 require_once('models/UserManager.php');
 
 function listProducts() {
-    $productManager = new ProductManager(); // Création d'un objet
+    $productManager = new ProductManager(); // Crï¿½ation d'un objet
     $products = $productManager->getProducts(); // Appel d'une fonction de cet objet
 
     echo("products : ");
@@ -35,7 +35,7 @@ function displayInfoByUser($userId) {
 }
 
 function displayBasketByCustomer($customer) {
-    $basketManager = new CustomerManager();
+    $basketManager = new BasketManager();
     $basket = $basketManager->getBasketByCustomer($customer);
 
     echo("basket : ");
@@ -46,14 +46,11 @@ function displayBasketByCustomer($customer) {
 
 function addProductToBasket($customer, $product, $quantity)
 {
-    $affectedLines = addProductToBasket($customer, $product, $quantity);
-    if ($affectedLines !== false){
-        var_dump(affectedLines);
-        try {
+    $basketManager = new BasketManager();
+    $basket = $basketManager->addProductToBasket($customer, $product, $quantity);
+
+    if ($basket !== false){
+        var_dump($basket);
             header('Location: basket.php?action=basket&id=' . $basketId);
-        } 
-        catch(Exception $e) {
-            die('Error : '.$e->getMessage());
-        } 
     }
 }
