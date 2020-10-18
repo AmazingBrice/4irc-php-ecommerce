@@ -1,12 +1,17 @@
 <?php
+/*
+use \PhpProject\Models\ProductManager;
+use \PhpProject\Models\BasketManager;
+use \PhpProject\Models\UserManager;
+*/
 
 require_once('models/ProductManager.php');
 require_once('models/BasketManager.php');
 require_once('models/UserManager.php');
 
 function listProducts() {
-    $productManager = new ProductManager(); // Cr�ation d'un objet
-    $products = $productManager->getProducts(); // Appel d'une fonction de cet objet
+    $productManager = new \PhpProject\Models\ProductManager();
+    $products = $productManager->getProducts();
 
     echo("products : ");
     var_dump($products);
@@ -15,7 +20,7 @@ function listProducts() {
 }
 
 function displayProduct($id) {
-    $productManager = new ProductManager();
+    $productManager = new \PhpProject\Models\ProductManager();
     $product = $productManager->getProduct($id);
 
     echo("product : ");
@@ -25,7 +30,7 @@ function displayProduct($id) {
 }
 
 function displayInfoByUser($userId) {
-    $userManager = new UserManager();
+    $userManager = new \PhpProject\Models\UserManager();
     $userInfo = $userManager->getInfoByUser($userId);
 
     echo("user info : ");
@@ -35,7 +40,7 @@ function displayInfoByUser($userId) {
 }
 
 function displayBasketByCustomer($customer) {
-    $basketManager = new BasketManager();
+    $basketManager = new \PhpProject\Models\BasketManager();
     $basket = $basketManager->getBasketByCustomer($customer);
 
     echo("basket : ");
@@ -46,11 +51,12 @@ function displayBasketByCustomer($customer) {
 
 function addProductToBasket($customer, $product, $quantity)
 {
-    $basketManager = new BasketManager();
+    $basketManager = new \PhpProject\Models\BasketManager();
     $basket = $basketManager->addProductToBasket($customer, $product, $quantity);
 
     if ($basket !== false){
-        var_dump($basket);
+ /*       var_dump($basket);
             header('Location: basket.php?action=basket&id=' . $basketId);
+    */
     }
 }
