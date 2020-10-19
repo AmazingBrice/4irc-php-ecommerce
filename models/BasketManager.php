@@ -6,7 +6,7 @@ require_once("models/Manager.php");
 
 class BasketManager extends Manager {
 
-    public function getBasketByCustomer($customer) {
+    public static function getBasketByCustomer($customer) {
         $manager = new Manager();
         $db = $manager->dbConnect();
 
@@ -16,7 +16,7 @@ class BasketManager extends Manager {
         return $req->fetch();
     }
 
-    public function addProductToBasket($customer, $product, $quantity) {
+    public static function addProductToBasket($customer, $product, $quantity) {
         $manager = new Manager();
         $db = $manager->dbConnect();
 

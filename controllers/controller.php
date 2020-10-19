@@ -1,9 +1,4 @@
 <?php
-/*
-use \PhpProject\Models\ProductManager;
-use \PhpProject\Models\BasketManager;
-use \PhpProject\Models\UserManager;
-*/
 
 require_once('models/ProductManager.php');
 require_once('models/BasketManager.php');
@@ -12,6 +7,7 @@ require_once('models/UserManager.php');
 function listProducts() {
     $productManager = new \PhpProject\Models\ProductManager();
     $products = $productManager->getProducts();
+ //   $products = new \PhpProject\Models\ProductManager()::getProducts();
 
     echo("products : ");
     var_dump($products);

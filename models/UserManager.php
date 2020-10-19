@@ -6,7 +6,7 @@ require_once("models/Manager.php");
 
 class UserManager extends Manager {
 
-    public function getInfoByUser($userId) {
+    public static function getInfoByUser($userId) {
         $manager = new Manager();
         $db = $manager->dbConnect();
 

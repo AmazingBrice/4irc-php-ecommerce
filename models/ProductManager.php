@@ -6,7 +6,7 @@ require_once("models/Manager.php");
 
 class ProductManager extends Manager {
 
-    public function getProducts() {
+    public static function getProducts() {
         $manager = new Manager();
         $db = $manager->dbConnect();
 
@@ -15,7 +15,7 @@ class ProductManager extends Manager {
         return $req->fetch();
     }
 
-    public function getProduct($productId) {
+    public static function getProduct($productId) {
         $manager = new Manager();
         $db = $manager->dbConnect();
 
