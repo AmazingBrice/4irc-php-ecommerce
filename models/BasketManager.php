@@ -6,9 +6,8 @@ require_once("models/Manager.php");
 
 class BasketManager extends Manager {
 
-    public function getBasketByCustomer($customer) {
-        $manager = new Manager();
-        $db = $manager->dbConnect();
+    public static function getBasketByCustomer($customer) {
+        $db = Manager::dbConnect();
 
         $req = $db->query('SELECT customer, product, quantity FROM Basket WHERE customer = ?');
         $req->execute([$customer]);
@@ -16,9 +15,8 @@ class BasketManager extends Manager {
         return $req->fetch();
     }
 
-    public function addProductToBasket($customer, $product, $quantity) {
-        $manager = new Manager();
-        $db = $manager->dbConnect();
+    public static function addProductToBasket($customer, $product, $quantity) {
+        $db = Manager::dbConnect();
 
         $req = $db->prepare('INSERT INTO Basket(customer, product, quantity) VALUES(?, ?, ?)');
         $affectedLines = $comments->execute(array($customer, $product, $quantity));
