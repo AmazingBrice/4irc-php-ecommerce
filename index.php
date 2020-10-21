@@ -4,7 +4,7 @@ session_start();
 require('./libs/smarty/Smarty.class.php');
 require('./controllers/controller.php');
 
-// Initialisation Smarty
+// Initialisation Smarty.
 $smarty = new Smarty();
 
 // Le corps de la page.
@@ -12,21 +12,35 @@ $smarty = new Smarty();
 $smarty->display('./views/accueil.tpl');
 
 // Fonction de routing.
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'listProducts') {
+try {
+    if (isset($_GET['action'])) {
+        if ($_GET['action'] == 'listProducts') {
+            listProducts();
+        }
+        elseif ($_GET['action'] == 'addProductToBasket') {
+            if (!empty($_POST['customer']) && !empty($_POST['product']) && !empty($_POST['quantity'])) {
+                addProductToBasket($_POST['customer'], $_POST['product'], $_POST['quantity']);
+            }
+            else {
+                throw new Exception('Erreur : Impossible d\'ajouter au panier, éléments manquants.');
+            }
+        }
+        elseif ($_GET['action'] == 'displayProduct') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                displayProduct($_GET['id']);
+            }
+            else {
+                throw new Exception('Erreur : Impossible d\'afficher ce produit, son id n\'existe pas.');
+            }
+        }
+    }
+    else {
         listProducts();
     }
-    elseif ($_GET['action'] == 'displayProduct') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            displayProduct($_GET['id']);
-        }
-        else {
-            echo 'Erreur : aucun identifiant ID renseigné.';
-        }
-    }
 }
-else {
-    listProducts();
+catch(Exception $e) {
+    die('Erreur : ' . $e->getMessage());    
+    // Il faudrait rajouter un template d'erreur pour afficher les erreurs de manière plus propre à l'utilisateur.
+    // $errorMessage = $e->getMessage();
+    // require('view/errorView.php');
 }
-
-
