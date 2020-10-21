@@ -40,8 +40,7 @@ function displayBasketByCustomer($customer) {
     //require('displayBasket.php');
 }
 
-function addProductToBasket($customer, $product, $quantity)
-{
+function addProductToBasket($customer, $product, $quantity) {
     $basket = \PhpProject\Models\BasketManager::addProductToBasket($customer, $product, $quantity);
 
     if ($basket !== false){

@@ -4,7 +4,7 @@ session_start();
 require('./libs/smarty/Smarty.class.php');
 require('./controllers/controller.php');
 
-// Initialisation Smarty
+// Initialisation Smarty.
 $smarty = new Smarty();
 
 // Le corps de la page.

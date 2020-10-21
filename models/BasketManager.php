@@ -8,7 +8,6 @@ class BasketManager extends Manager {
 
     public static function getBasketByCustomer($customer) {
         $db = Manager::dbConnect();
-
         $req = $db->query('SELECT customer, product, quantity FROM Basket WHERE customer = ?');
         $req->execute([$customer]);
 
