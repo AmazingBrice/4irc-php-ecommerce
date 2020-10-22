@@ -8,7 +8,6 @@ require('./controllers/controller.php');
 $smarty = new Smarty();
 
 // Le corps de la page.
-
 $smarty->display('./views/accueil.tpl');
 
 // Fonction de routing.
@@ -39,8 +38,7 @@ try {
     }
 }
 catch(Exception $e) {
-    die('Erreur : ' . $e->getMessage());    
-    // Il faudrait rajouter un template d'erreur pour afficher les erreurs de manière plus propre à l'utilisateur.
-    // $errorMessage = $e->getMessage();
-    // require('view/errorView.php');
+    $smarty->assign('errorMessage', $e->getMessage()); // Récupération du message d'erreur.
+    $errorOutput = $smarty->fetch('./views/includes/_error.tpl'); // Affichage de la vue erreur. //TEST
+    echo $errorOutput;
 }
