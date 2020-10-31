@@ -7,8 +7,9 @@ require_once('models/UserManager.php');
 function listProducts() {
     $products = \PhpProject\Models\ProductManager::getProducts();
 
-    echo("products : ");
-    var_dump($products);
+    $smarty = new Smarty();
+    $smarty->assign('products', $products);
+    $smarty->display('./views/accueil.tpl');
 
     //require('listProductsView.php');
 }

@@ -1,0 +1,16 @@
+.product {
+    border: 2px solid black;
+    padding: 1em;
+    margin: 1em;
+}
+.productName {
+    font-weight: bold;
+    font-size: xx-large;
+}
+.productSectionHeader {
+    font-size: larger;
+}
+.productPicture {
+    max-height: 200px;
+    max-width: 200px;
+}
