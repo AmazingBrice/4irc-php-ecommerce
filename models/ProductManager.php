@@ -8,9 +8,9 @@ class ProductManager extends Manager {
 
     public static function getProducts() {
         $db = Manager::dbConnect();
-        $req = $db->query('SELECT id, name, description, price FROM Products');
+        $req = $db->query('SELECT id, name, description, price, image FROM Products');
 
-        return $req->fetch();
+        return $req->fetchAll();
     }
 
     public static function getProduct($productId) {

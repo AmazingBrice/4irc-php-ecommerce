@@ -8,8 +8,7 @@ require('./controllers/controller.php');
 $smarty = new Smarty();
 
 // Le corps de la page.
-
-$smarty->display('./views/accueil.tpl');
+// $smarty->display('./views/accueil.tpl');
 
 // Fonction de routing.
 try {
