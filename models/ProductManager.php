@@ -15,7 +15,7 @@ class ProductManager extends Manager {
 
     public static function getProduct($productId) {
         $db = Manager::dbConnect();
-        $req = $db->prepare("SELECT id, name, description, price FROM Products WHERE id = ?");
+        $req = $db->prepare("SELECT id, name, description, price, image FROM Products WHERE id = ?");
         $req->execute([$productId]);
 
         return $req->fetch();

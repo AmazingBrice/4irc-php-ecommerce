@@ -5,22 +5,26 @@ require_once('models/BasketManager.php');
 require_once('models/UserManager.php');
 
 function listProducts() {
-    $products = \PhpProject\Models\ProductManager::getProducts();
+    $productsRaw = \PhpProject\Models\ProductManager::getProducts();
+    $products = [];
+
+    // On coupe la traduction pour créer du suspense et pousser les acheteurs à cliquer sur le produit.
+    foreach($productsRaw as $product) {
+        $product["description"] = substr($product["description"], 0, 32) . '...';
+        array_push($products, $product);
+    }
 
     $smarty = new Smarty();
     $smarty->assign('products', $products);
     $smarty->display('./views/accueil.tpl');
-
-    //require('listProductsView.php');
 }
 
 function displayProduct($id) {
     $product = \PhpProject\Models\ProductManager::getProduct($id);
 
-    echo("product : ");
-    var_dump($product);
-
-    //require('displayProductView.php');
+    $smarty = new Smarty();
+    $smarty->assign('product', $product);
+    $smarty->display('./views/productDetails.tpl');
 }
 
 function displayInfoByUser($userId) {

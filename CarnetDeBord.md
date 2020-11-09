@@ -79,8 +79,15 @@ De plus, nous avons pu commencer à correctement organiser notre Github :
 
 Développement de l'issue 12 "Créer la view permettant d'afficher tous les produits".
 
-On voit désormais tous nos produits ainsi que leurs informations (description, prix, image) sur la page d'accueil.<br>
+On voit désormais tous nos produits ainsi que leurs informations (description, prix, image) sur la page d'accueil (la base de données à légèrement été modifiée pour ques les produits aient le nom de l'image en propriété).<br>
 Quelques fonctions ont été modifiées ainsi que le template. Une réorganisation des images et l'ajout d'un fichier `style.css` ont aussi été effectués.
+
+### Vincent - 09/11/2020
+
+Développement de l'issue 14 "Créer la view d'un seul produit".
+
+Dorénavant, lorsque l'on clique sur le nom d'un produit sur la page d'accueil, on est redirigé vers une page qui présente ce produit.<br>
+La page d'accueil a par ailleurs légèrement été modifiée : les produits s'affichent dans une liste horizontale et la description du produit est coupée pour qu'il y ait un intérêt à cliquer sur le produit (il y a plus d'informations sur la page du produit que sur la liste de tous les produits).
 
 ### Webographie
 
@@ -94,6 +101,9 @@ Quelques fonctions ont été modifiées ainsi que le template. Une réorganisati
 
 #### PDO
 - https://phpdelusions.net/pdo_examples/select
+
+#### Documentation PHP
+- https://www.php.net/manual/fr/control-structures.foreach.php
 
 ## DREVET Yoann
 ## FOLLEAS Brice
