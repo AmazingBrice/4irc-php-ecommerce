@@ -5,13 +5,11 @@ require_once('models/BasketManager.php');
 require_once('models/UserManager.php');
 
 function listProducts() {
-    $productsRaw = \PhpProject\Models\ProductManager::getProducts();
-    $products = [];
+    $products = \PhpProject\Models\ProductManager::getProducts();
 
     // On coupe la traduction pour créer du suspense et pousser les acheteurs à cliquer sur le produit.
-    foreach($productsRaw as $product) {
+    foreach($products as &$product) {
         $product["description"] = substr($product["description"], 0, 32) . '...';
-        array_push($products, $product);
     }
 
     $smarty = new Smarty();
