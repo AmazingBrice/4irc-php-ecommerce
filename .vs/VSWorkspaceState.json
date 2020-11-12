@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\controllers",
+    "\\db",
+    "\\models",
+    "\\views",
+    "\\views\\includes"
+  ],
+  "SelectedNode": "\\views\\accueil.tpl",
+  "PreviewInSolutionExplorer": false
+}
