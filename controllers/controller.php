@@ -35,10 +35,9 @@ function displayInfoByUser($userId) {
 function displayBasketByCustomer($customer) {
     $basket = \PhpProject\Models\BasketManager::getBasketByCustomer($customer);
 
-    echo("basket : ");
-    var_dump($basket);
-
-    //require('displayBasket.php');
+    $smarty = new Smarty();
+    $smarty->assign('basket', $basket);
+    $smarty->display('./views/basket.tpl');
 }
 
 function addProductToBasket($customer, $product, $quantity) {

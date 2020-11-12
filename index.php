@@ -17,7 +17,7 @@ try {
             listProducts();
         }
         elseif ($_GET['action'] == 'displayBasket') {
-            $smarty->display('./views/basket.tpl');
+            displayBasketByCustomer($_GET['id']);
         }
         elseif ($_GET['action'] == 'addProductToBasket') {
             if (!empty($_POST['customer']) && !empty($_POST['product']) && !empty($_POST['quantity'])) {

@@ -1,4 +1,4 @@
-/* DEMO GENERAL ============================== */
+/* GENERAL */
 .hover {
     overflow: hidden;
     position: relative;
@@ -28,7 +28,7 @@
     z-index: 99;
   }
 
-  /* DEMO 3 ============================== */
+  /* IMAGE LINK */
 .hover-3::after {
     content: '';
     width: calc(100% - 3rem);
