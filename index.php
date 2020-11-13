@@ -17,7 +17,12 @@ try {
             listProducts();
         }
         elseif ($_GET['action'] == 'displayBasket') {
-            displayBasketByCustomer($_GET['id']);
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                displayBasketByCustomer($_GET['id']);
+            }
+            else {
+                throw new Exception('Erreur : Impossible d\'afficher ce panier, son id n\'existe pas.');
+            }
         }
         elseif ($_GET['action'] == 'addProductToBasket') {
             if (!empty($_POST['customer']) && !empty($_POST['product']) && !empty($_POST['quantity'])) {

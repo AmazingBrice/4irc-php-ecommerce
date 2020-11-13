@@ -11,7 +11,7 @@ class BasketManager extends Manager {
         $req = $db->prepare(
         'SELECT customer, id, name, description, price, image, quantity 
         FROM Basket 
-        INNER JOIN Products ON Products.id = Basket.product WHERE customer = ?');
+        JOIN Products ON Products.id = Basket.product WHERE customer = ?');
         $req->execute([$customerId]);
 
         return $req->fetchAll();
