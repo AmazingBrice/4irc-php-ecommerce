@@ -38,8 +38,6 @@ try {
     }
 }
 catch(Exception $e) {
-    die('Erreur : ' . $e->getMessage());    
-    // Il faudrait rajouter un template d'erreur pour afficher les erreurs de manière plus propre à l'utilisateur.
-    // $errorMessage = $e->getMessage();
-    // require('view/errorView.php');
+    $smarty->assign('errorMessage', $e->getMessage()); // Récupération du message d'erreur.
+    $smarty->display('./views/includes/_error.tpl');
 }
