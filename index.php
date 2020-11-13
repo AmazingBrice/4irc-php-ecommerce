@@ -13,15 +13,12 @@ $smarty = new Smarty();
 // Fonction de routing.
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listProducts') {
-            listProducts();
-        }
-        elseif ($_GET['action'] == 'addProductToBasket') {
+        if ($_GET['action'] == 'addProductToBasket') {
             if (!empty($_POST['customer']) && !empty($_POST['product']) && !empty($_POST['quantity'])) {
                 addProductToBasket($_POST['customer'], $_POST['product'], $_POST['quantity']);
             }
             else {
-                throw new Exception('Erreur : Impossible d\'ajouter au panier, éléments manquants.');
+                throw new Exception('Impossible d\'ajouter au panier, éléments manquants.');
             }
         }
         elseif ($_GET['action'] == 'displayProduct') {
@@ -29,8 +26,11 @@ try {
                 displayProduct($_GET['id']);
             }
             else {
-                throw new Exception('Erreur : Impossible d\'afficher ce produit, son id n\'existe pas.');
+                throw new Exception('Impossible d\'afficher ce produit, son id n\'existe pas.');
             }
+        }
+        else {
+            listProducts();
         }
     }
     else {
