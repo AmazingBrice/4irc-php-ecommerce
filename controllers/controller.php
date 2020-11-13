@@ -20,6 +20,10 @@ function listProducts() {
 function displayProduct($id) {
     $product = \PhpProject\Models\ProductManager::getProduct($id);
 
+    if(!$product) {
+        throw new Exception('Aucun produit correspondant n\'a été trouvé.');
+    }
+
     $smarty = new Smarty();
     $smarty->assign('product', $product);
     $smarty->display('./views/productDetails.tpl');

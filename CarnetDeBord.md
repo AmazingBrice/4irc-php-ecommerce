@@ -94,6 +94,13 @@ Développement de l'issue 17 "Créer un header et un footer minimaliste".
 Grâce à Bootstrap, j'ai pu limiter le CSS custom en utilisant leurs classes CSS.<br>
 J'en ai aussi profité pour faire une mise en page plus sympathique, que ce soit au niveau du header, du footer ou du coeur de la page. Notre header dispose désormais d'un menu de navigation pour voir tous les produits, se connecter (pas encore développé) ou encore voir son panier (pas encore développé).
 
+### Vincent - 13/11/2020
+
+Développement de l'issue 22 "Bug mauvais paramètres".
+
+En effet, lorsque l'on rentre dans l'URL de mauvais paramètres, on a des erreurs PHP (par exemple quand la base de données ne trouve rien) voire une page blanche (quand "action" n'est pas reconnu).<br>
+J'ai donc généré une erreur qui indique que la base de données n'a rien trouvé et aussi mis la page d'accueil par défaut si le paramètre "action" n'est pas reconnu.
+
 ### Webographie
 
 #### Smarty
