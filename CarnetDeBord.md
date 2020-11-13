@@ -28,6 +28,7 @@ Accès à phpMyAdmin :<br>
 **password: aR7RIRZbiUZw3dYk**
 
 Liens utiles :
+
 - Utilisation Smarty : http://fredods.com/creer-votre-site-avec-smarty-en-mvc-partie-1/
 - Architecture MVC PHP : https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4682351-creer-un-routeur
 
@@ -64,6 +65,7 @@ En poussant un peu cela, nous avons pu avoir une première version d'un routeur,
 Concrètement, nous avons actuellement deux pages : une qui affiche un var_dump de tous nos produits et une autre qui affiche uniquement un var_dump d'un produit selon l'id passé en paramètre de l'URL. Bien que relativement sommaire, cela constitue une modeste base de notre site.
 
 De plus, nous avons pu commencer à correctement organiser notre Github :
+
 - Chaque ajout passe par une branche distincte de la master
 - Chaque branche est liée à une issue
 - Chaque pull request doit être acceptée et relue par un autre membre du groupe
@@ -93,6 +95,12 @@ Développement de l'issue 17 "Créer un header et un footer minimaliste".
 
 Grâce à Bootstrap, j'ai pu limiter le CSS custom en utilisant leurs classes CSS.<br>
 J'en ai aussi profité pour faire une mise en page plus sympathique, que ce soit au niveau du header, du footer ou du coeur de la page. Notre header dispose désormais d'un menu de navigation pour voir tous les produits, se connecter (pas encore développé) ou encore voir son panier (pas encore développé).
+
+### Vincent - 13/11/2020
+
+Développement de l'issue 20 "Créer une page d'informations".
+
+Ici, je vais charger ce fichier (CarnetDeBord.md) et l'afficher dans le site grâce à un lien "À propos". Pour cela, je vais utiliser une librairie PHP qui permet de transformer le markdown en HTML : https://github.com/michelf/php-markdown
 
 ### Webographie
 

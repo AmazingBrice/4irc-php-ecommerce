@@ -7,13 +7,18 @@
             <a class="navbar-brand" href="/">Projet PHP</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                        <a class="nav-link" href="/">Tous nos produits</a>
+                    <a class="nav-link" href="/">Tous nos produits</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="">Se connecter</a>
+                    <a class="nav-link" href="">Se connecter</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="">Mon panier</a>
+                    <a class="nav-link" href="">Mon panier</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/?action=aboutUs">À propos</a>
                 </li>
             </ul>
             <!--

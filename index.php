@@ -32,6 +32,9 @@ try {
                 throw new Exception('Erreur : Impossible d\'afficher ce produit, son id n\'existe pas.');
             }
         }
+        elseif ($_GET['action'] == 'aboutUs') {
+            aboutUs();
+        }
     }
     else {
         listProducts();
