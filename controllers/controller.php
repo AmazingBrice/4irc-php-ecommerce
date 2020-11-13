@@ -4,6 +4,8 @@ require_once('models/ProductManager.php');
 require_once('models/BasketManager.php');
 require_once('models/UserManager.php');
 
+require_once('libs/Michelf/Markdown.inc.php');
+
 function listProducts() {
     $products = \PhpProject\Models\ProductManager::getProducts();
 
@@ -51,4 +53,13 @@ function addProductToBasket($customer, $product, $quantity) {
             header('Location: basket.php?action=basket&id=' . $basketId);
     */
     }
+}
+
+function aboutUs() {
+    $contentMD = file_get_contents('CarnetDeBord.md');
+    $contentHTML = \Michelf\Markdown::defaultTransform($contentMD);
+    
+    $smarty = new Smarty();
+    $smarty->assign('content', $contentHTML);
+    $smarty->display('./views/aboutUs.tpl');
 }
