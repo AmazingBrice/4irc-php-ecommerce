@@ -21,7 +21,7 @@ class BasketManager extends Manager {
         $db = Manager::dbConnect();
 
         $req = $db->prepare('INSERT INTO Basket(customer, product, quantity) VALUES(?, ?, ?)');
-        $affectedLines = $comments->execute(array($customer, $product, $quantity));
+        $affectedLines = $req->execute(array($customer, $product, $quantity));
 
         return $affectedLines;
     }
