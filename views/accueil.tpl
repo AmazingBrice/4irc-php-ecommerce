@@ -2,18 +2,20 @@
 {block name=page_title}Page d’accueil{/block}
 {block name=main}
     <h1>Nos produits</h1>
-    <div class="productsContainer">
-    {foreach from=$products item=product}
-            <div class="product">
+    <div class="card-deck">
+        {foreach from=$products item=product}
+            <div class="card">
                 <a href="?action=displayProduct&id={$product.id}">
-                    <p class="productName">{$product.name}</p>
+                    <img src="public/images/productsImages/{$product.image}.jpg" alt="{$product.name}" class="card-img-top">
+                    <h5 class="card-header text-center">{$product.name}</h5>
                 </a>
-                <p class="productSectionHeader">Description</p> 
-                <p>&emsp;{$product.description}</p>
-                <p class="productSectionHeader">Prix</p>
-                <p>&emsp;{$product.price} €</p>
-                <img src="public/images/productsImages/{$product.image}.jpg" alt="{$product.name}" class="productPicture">
+                <div class="card-body">
+                    {$product.description}
+                </div>
+                <div class="card-footer text-right">
+                    {$product.price} €
+                </div>
             </div>
-    {/foreach}
+        {/foreach}
     </div>
 {/block}

@@ -89,6 +89,11 @@ Développement de l'issue 14 "Créer la view d'un seul produit".
 Dorénavant, lorsque l'on clique sur le nom d'un produit sur la page d'accueil, on est redirigé vers une page qui présente ce produit.<br>
 La page d'accueil a par ailleurs légèrement été modifiée : les produits s'affichent dans une liste horizontale et la description du produit est coupée pour qu'il y ait un intérêt à cliquer sur le produit (il y a plus d'informations sur la page du produit que sur la liste de tous les produits).
 
+Développement de l'issue 17 "Créer un header et un footer minimaliste".
+
+Grâce à Bootstrap, j'ai pu limiter le CSS custom en utilisant leurs classes CSS.<br>
+J'en ai aussi profité pour faire une mise en page plus sympathique, que ce soit au niveau du header, du footer ou du coeur de la page. Notre header dispose désormais d'un menu de navigation pour voir tous les produits, se connecter (pas encore développé) ou encore voir son panier (pas encore développé).
+
 ### Webographie
 
 #### Smarty
